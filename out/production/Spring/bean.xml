@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+    <!-- bean的配置方式之全类名（反射）-->
+    <bean id="heii" class="com.smart.HelloWord.Car$HelloWorld">
+        <!-- 通过属性注入-->
+    <property name="user" value="liufei"></property>
+</bean>
+    <bean id="heoo" class="com.smart.HelloWord.Car$HelloWorld">
+        <!--通过构造器注入
+        可以加索引
+        constructor-arg value="liuniu" index=“0”
+        如果构造器有两个，且参数个数一样？
+        constructor-arg value="liuniu" type="java.lang.String/float"
+        index和type可以混合使用
+        -->
+        <constructor-arg value="liuniu"></constructor-arg>
+         </bean>
+    <!-- 注意<![CDATA[<250***>]]>格式 -->
+     <!--<bean id="hell" class="com.smart.HelloWord.Car.HelloWorld">
+             <constructor-arg type="java.lang.String">
+
+            <value><![CDATA[<250***>]]></value>
+        </constructor-arg>
+    </bean>-->
+    <bean id="hell" class="com.smart.HelloWord.Car$HelloWorld">
+        <property name="user">
+            <value><![CDATA[<250**>]]></value>
+        </property>
+    </bean>
+    <bean id="car" class="com.smart.HelloWord.Car">
+        <constructor-arg value="长安" type="java.lang.String"></constructor-arg>
+        <constructor-arg value="长安忆" type="java.lang.String"></constructor-arg>
+        <constructor-arg value="123" type="float"></constructor-arg>
+    </bean>
+    <bean id="car1" class="com.smart.HelloWord.Car">
+        <constructor-arg value="长安1" type="java.lang.String"></constructor-arg>
+        <constructor-arg value="长安忆1" type="java.lang.String"></constructor-arg>
+        <constructor-arg value="1231" type="float"></constructor-arg>
+    </bean>
+    <!-- 方法一
+    <bean id="person1" class="com.smart.HelloWord.Person">
+        <property name="userName" value="刘飞"></property>
+        <property name="wifeName" value="刘飞1"></property>
+        <property name="cars" >
+            <list>
+                <ref bean="car"></ref>
+                <ref bean="car1"></ref>
+            </list>
+        </property>
+
+    </bean>-->
+    <!-- 方法二 -->
+    <!--将集合声明在外面，相当于全局变量？-->
+    <!-- 声明集合类型的 bean -->
+    <util:list id="cars">
+        <ref bean="car"/>
+        <ref bean="car1"/>
+    </util:list>
+    <!--
+    <bean id="person1" class="com.smart.HelloWord.Person">
+        <property name="userName" value="刘飞"></property>
+        <property name="wifeName" value="刘飞1"></property>
+        <property name="cars" ref="cars">
+        </property>
+    </bean>-->
+    <!-- 利用p空间来为bean赋值 -->
+    <bean id="person1" class="com.smart.HelloWord.Person" p:userName="刘飞" p:wifeName="刘飞1"
+          p:cars-ref="cars" abstract="true"></bean>
+    <bean id="person2" parent="person1" p:userName="刘能"></bean>
+</beans>
