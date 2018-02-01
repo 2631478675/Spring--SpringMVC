@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--
+        使用bean的scope属性来配置bean的作用域
+        singleton：默认值，创建容器时，bean已经被创建好了（调用了无参构造器），单例bean
+        prototype：容器初始化时，不创建bean；而是在每次请求时创建一个bean
+     -->
+    <bean id="car" class="com.smart.autowrie.Car"
+    scope="singleton">
+        <property name="brand" value="adi"></property>
+        <property name="price" value="250"></property>
+    </bean>
+</beans>

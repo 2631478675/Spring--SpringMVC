@@ -24,11 +24,14 @@ public class Main {
         //相应的在Ioc容器中配置bean(helloWorld1)
         Car.HelloWorld helloWorld1=(Car.HelloWorld) cxt.getBean("heoo");
         Car.HelloWorld helloWorld2=(Car.HelloWorld) cxt.getBean("hell");
+
         helloWorld.hello();
         helloWorld1.hello();
         helloWorld2.hello();
+        //方式一:利用ID定位到IOC容器的bean中
         Car car=(Car) cxt.getBean("car");
-        Car car1=(Car) cxt.getBean("car1");
+        //方式二：利用类型返回IOC容器中的bean，但要求IOC容器中必须只能有一个该类型的bean；则一般采用第一种形式
+        Car car1= cxt.getBean(Car.class);
    //     Person person=(Person)cxt.getBean("person1");
         Person person1=(Person) cxt.getBean("person2");
         person1.to();

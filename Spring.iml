@@ -34,6 +34,21 @@
         <fileset id="fileset7" name="Aop_bean_xml (2)" removed="false">
           <file>file://$MODULE_DIR$/src/aop_bean_xml.xml</file>
         </fileset>
+        <fileset id="fileset8" name="Bean Autowire" removed="false">
+          <file>file://$MODULE_DIR$/src/bean-autowire.xml</file>
+        </fileset>
+        <fileset id="fileset9" name="Bean Relation" removed="false">
+          <file>file://$MODULE_DIR$/src/bean-relation.xml</file>
+        </fileset>
+        <fileset id="fileset10" name="Bean Scope" removed="false">
+          <file>file://$MODULE_DIR$/src/bean-scope.xml</file>
+        </fileset>
+        <fileset id="fileset11" name="Bean Properties" removed="false">
+          <file>file://$MODULE_DIR$/src/bean-properties.xml</file>
+        </fileset>
+        <fileset id="fileset12" name="Spel_bean" removed="false">
+          <file>file://$MODULE_DIR$/src/spel_bean.xml</file>
+        </fileset>
       </configuration>
     </facet>
   </component>
@@ -45,5 +60,23 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="尚硅谷Spring之Aspect需要导入的包" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../jar包/mysql-connector-java-5.0.5.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../jar包/c3p0-0.9.5.2.bin/c3p0-0.9.5.2/lib/c3p0-0.9.5.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>
