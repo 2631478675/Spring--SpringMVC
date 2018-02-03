@@ -2,22 +2,24 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-<bean id="adderss" class="com.smart.spel.Adderss">
-    <!--SqEl为属性赋字面值（String,int）,字符串要加‘’-->
-    <property name="city" value="#{'beijing'}"></property>
-    <property name="street" value="王大同"></property>
-</bean>
-<bean id="car" class="com.smart.spel.Car">
-    <property name="brand" value="宝马"></property>
-    <property name="price" value="263146"></property>
-    <property name="tyrePerimeter" value="#{T(java.lang.Math).PI*80}"></property>
-</bean>
+    <bean id="adderss" class="com.smart.spel.Adderss">
+        <!--SqEl为属性赋字面值（String,int）,字符串要加‘’-->
+        <property name="city" value="#{'beijing'}"></property>
+        <property name="street" value="王大同"></property>
+    </bean>
+    <bean id="car" class="com.smart.spel.Car">
+        <property name="brand" value="宝马"></property>
+        <property name="price" value="263146"></property>
+        <!-- 引用类的静态属性或方法-->
+        <property name="tyrePerimeter" value="#{T(java.lang.Math).PI*80}"></property>
+    </bean>
     <bean id="person" class="com.smart.spel.Person">
         <property name="name" value="刘飞"></property>
-
         <!-- 引用其他bean的属性，只有sqel能做到 -->
         <property name="city" value="#{adderss.city}"></property>
+        <!-- 引用其他bean-->
         <property name="car" value="#{car}"></property>
+        <!-- 使用运算符-->
         <property name="info" value="#{car.price>300000?'金领':'白领'}"></property>
     </bean>
 </beans>

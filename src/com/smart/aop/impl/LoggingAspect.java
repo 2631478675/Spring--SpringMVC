@@ -63,7 +63,8 @@ public class LoggingAspect {
         System.out.println("the "+methodName+" ends with "+result);
     }
     /*
-    异常通知：可以访问到异常对象,并跟踪是什么异常
+    异常通知：在目标方法发生异常时执行
+    可以访问到异常对象,并跟踪是什么异常
      */
     @AfterThrowing(value="declareJointPointExperssion()",throwing = "ex")
     public void afterThrowing(JoinPoint joinPoint, Exception ex){
