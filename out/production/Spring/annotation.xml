@@ -6,19 +6,22 @@
     <!-- 指定扫描的包-->
     <context:component-scan base-package="com.smart.annotation"
     ></context:component-scan>
-    <!-- 指定扫描的某子包中的类
+    <!-- 指定扫描的某子包中的类：只扫描repository下的类-->
     <context:component-scan base-package="com.smart.annotation"
                             resource-pattern="repository/*.class"></context:component-scan>
-    -->
-    <!--context:exclude-filter排除某子类,注意：expression里面是啥
-    <context:component-scan base-package="com.smart.annotation"
-                            >
+
+    <!--context:exclude-filter排除某子包：不扫描Repository,注意：expression里面的填写方式-->
+    <context:component-scan base-package="com.smart.annotation">
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"></context:exclude-filter>
-</context:component-scan>-->
-    <!-- context:include-filter，注意一：use-default-filters="false"
-    注意二：expression里面是啥
+</context:component-scan>
+    <!-- context:include-filter，注意一：use-default-filters="false" //默认为true，扫描全部包
+    注意二：expression里面填写方式-->
     <context:component-scan base-package="com.smart.annotation"
                             use-default-filters="false">
+        <!--
+             annotation的作用域为此类
+             assinable的作用域为此类和它的子类
+        -->
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"></context:include-filter>
-    </context:component-scan>-->
+    </context:component-scan>
 </beans>
